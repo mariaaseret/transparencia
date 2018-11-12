@@ -37,6 +37,7 @@ INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (30,'Augusto Lui
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (31,'Maycon Oliveira');
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (32,'Luis Carlos Zaia');
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (33,'Romeu Anselmo Pompilio');
+<<<<<<< HEAD
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (34,'Bruno André de Souza\n');
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (35,'Claudinei Marques');
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (36,'Fábio Gomes Braga \n');
@@ -48,4 +49,17 @@ INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (41,'Marcos Jos�
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (42,'Milton Donizete Barcelos Junior \n');
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (43,'Rafael Filomeno Daux \n');
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (44,'Maycon Cassimiro Oliveira \n');
+=======
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (34,'Bruno André de Souza');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (35,'Claudinei Marques');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (36,'Fábio Gomes Braga');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (37,'Gabriel Meurer');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (38,'Jeferson Richter Backer');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (39,'João Luiz da Silveira');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (40,'Maikon da Costa');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (41,'Marcos José de Abreu');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (42,'Milton Donizete Barcelos Junior');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (43,'Rafael Filomeno Daux');
+INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (44,'Maycon Cassimiro Oliveira');
+>>>>>>> 0b047f47271ebb54d50e3ec255f039ecc11c40d7
 INSERT INTO `vereadores` (`idVereadores`,`nomeVereador`) VALUES (45,'Roseli Maria da Silva Pereira');
