@@ -526,168 +526,294 @@ or die ('Cannot connect to db');
                 }
 
 
-                $values = [];
+                //gráfico de gastos especificados
+                if($anoSelecionado == 2018)
+                {
+                     $qEspecifico1="SELECT sum(passagem) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                     $qEspecifico1=mysqli_query($conn,$qEspecifico1);
+                     if($qEspecifico1)
+                     {
+                        while($row=mysqli_fetch_assoc($qEspecifico1))
+                        {
+                                $passagem = $row['soma'];
+                        }     
+                }
+                $qEspecifico2="SELECT sum(telefone_fixo) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico2=mysqli_query($conn,$qEspecifico2);
+                if($qEspecifico2)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico2))
+                        {
+                                $telefone_fixo = $row['soma'];
+                        }     
+                }
+                $qEspecifico3="SELECT sum(xerox) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico3=mysqli_query($conn,$qEspecifico3);
+                if($qEspecifico3)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico3))
+                        {
+                                $xerox = $row['soma'];
+                        }     
+                }
+                $qEspecifico4="SELECT sum(material_expediente) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico4=mysqli_query($conn,$qEspecifico4);
+                if($qEspecifico4)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico4))
+                        {
+                                $material_expediente = $row['soma'];
+                        }     
+                }
+                $qEspecifico5="SELECT sum(diarias) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico5=mysqli_query($conn,$qEspecifico5);
+                if($qEspecifico5)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico5))
+                        {
+                                $diarias = $row['soma'];
+                        }     
+                }
+                $qEspecifico6="SELECT sum(outros) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico6=mysqli_query($conn,$qEspecifico6);
+                if($qEspecifico6)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico6))
+                        {
+                                $outros = $row['soma'];
+                        }     
+                }
+                $qEspecifico7="SELECT sum(selos) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico7=mysqli_query($conn,$qEspecifico7);
+                if($qEspecifico7)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico7))
+                        {
+                                $selos = $row['soma'];
+                        }     
+                }
+                $qEspecifico8="SELECT sum(servicos) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico8=mysqli_query($conn,$qEspecifico8);
+                if($qEspecifico8)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico8))
+                        {
+                                $servicos = $row['soma'];
+                        }     
+                }
+                $qEspecifico9="SELECT sum(telefone) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico9=mysqli_query($conn,$qEspecifico9);
+                if($qEspecifico9)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico9))
+                        {
+                                $telefone = $row['soma'];
+                        }     
+                }
+                $qEspecifico10="SELECT sum(cursos) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico10=mysqli_query($conn,$qEspecifico10);
+                if($qEspecifico10)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico10))
+                        {
+                                $cursos = $row['soma'];
+                        }     
+                }
+                $qEspecifico11="SELECT sum(carimbos) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico11=mysqli_query($conn,$qEspecifico11);
+                if($qEspecifico11)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico11))
+                        {
+                                $carimbos = $row['soma'];
+                        }     
+                }
+                $qEspecifico12="SELECT sum(jornal) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico12=mysqli_query($conn,$qEspecifico12);
+                if($qEspecifico12)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico12))
+                        {
+                                $jornal = $row['soma'];
+                        }     
+                }
+                  $qEspecifico14="SELECT sum(correio) as soma from totais where Vereadores_idVereadores  = '$vereadorSelecionado' and ano = 2018;";
+                $qEspecifico14=mysqli_query($conn,$qEspecifico14);
+                if($qEspecifico14)
+                {
+                        while($row=mysqli_fetch_assoc($qEspecifico14))
+                        {
+                                $correio = $row['soma'];
+                        }     
+                }
+
+        }
+
+
+
+
+        $values = [];
 
     //pushing some variables to the array so we can output something in this example.
-                array_push($values, array("mes" => "JAN", "newbalance" => $janeiro));
-                array_push($values, array("mes" => "FEV", "newbalance" => $fevereiro));
-                array_push($values, array("mes" => "MAR", "newbalance" => $marco));
-                array_push($values, array("mes" => "ABR", "newbalance" => $abril));
-                array_push($values, array("mes" => "MAI", "newbalance" => $maio));
-                array_push($values, array("mes" => "JUN", "newbalance" => $junho));
-                array_push($values, array("mes" => "JUL", "newbalance" => $julho));
-                array_push($values, array("mes" => "AGO", "newbalance" => $agosto));
-                array_push($values, array("mes" => "SET", "newbalance" => $setembro));
-                array_push($values, array("mes" => "OUT", "newbalance" => $outubro));
-                array_push($values, array("mes" => "NOV", "newbalance" => $novembro));
-                array_push($values, array("mes" => "DEZ", "newbalance" => $dezembro));
+        array_push($values, array("mes" => "JAN", "newbalance" => $janeiro));
+        array_push($values, array("mes" => "FEV", "newbalance" => $fevereiro));
+        array_push($values, array("mes" => "MAR", "newbalance" => $marco));
+        array_push($values, array("mes" => "ABR", "newbalance" => $abril));
+        array_push($values, array("mes" => "MAI", "newbalance" => $maio));
+        array_push($values, array("mes" => "JUN", "newbalance" => $junho));
+        array_push($values, array("mes" => "JUL", "newbalance" => $julho));
+        array_push($values, array("mes" => "AGO", "newbalance" => $agosto));
+        array_push($values, array("mes" => "SET", "newbalance" => $setembro));
+        array_push($values, array("mes" => "OUT", "newbalance" => $outubro));
+        array_push($values, array("mes" => "NOV", "newbalance" => $novembro));
+        array_push($values, array("mes" => "DEZ", "newbalance" => $dezembro));
 
 
     //counting the length of the array
-                $countArrayLength = count($values);
+        $countArrayLength = count($values);
 
-                ?>
-                <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-                <script type="text/javascript">
-                       google.load("visualization", "1", {packages:["corechart"]});
-                       google.setOnLoadCallback(drawChart);
+        ?>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+         google.load("visualization", "1", {packages:["corechart"]});
+         google.setOnLoadCallback(drawChart);
 
-                       function drawChart() {
+         function drawChart() {
 
-                              var data = new google.visualization.DataTable();
-                              data.addColumn('string', 'Mes');
-                              data.addColumn('number', 'Gasto');                        					
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Mes');
+          data.addColumn('number', 'Gasto');                        					
 
-                              data.addRows([
+          data.addRows([
 
-                                     <?php
-                                     for($i=0;$i<$countArrayLength;$i++){
-                                            echo "['" . $values[$i]['mes'] . "'," . $values[$i]['newbalance'] . "],";
-                                    } 
-                                    ?>
-                                    ]);
+           <?php
+           for($i=0;$i<$countArrayLength;$i++){
+            echo "['" . $values[$i]['mes'] . "'," . $values[$i]['newbalance'] . "],";
+    } 
+    ?>
+    ]);
 
-                              var options = {
-                                     title: 'Gastos de <?php echo $anoSelecionado;?>',
-                                     curveType: 'function',
-                                     legend: { position: 'bottom' }, 
-                                     interpolateNulls: true,
-                                     colors: ['#0040FF']
-                             };
+          var options = {
+           title: 'Gastos de <?php echo $anoSelecionado;?>',
+           curveType: 'function',
+           legend: { position: 'bottom' }, 
+           interpolateNulls: true,
+           colors: ['#0040FF']
+   };
 
-                             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-                             chart.draw(data, options);
-                     }
-             </script>
+   var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+   chart.draw(data, options);
+}
+</script>
 
-             <div id="curve_chart" style="width: 850px; height: 300px"></div>
+<div id="curve_chart" style="width: 850px; height: 300px"></div>
 
-
-
-
-     </td>
-     <td>
-
-           <script type="text/javascript">
-                  google.charts.load("current", {packages:["corechart"]});
-                  google.charts.setOnLoadCallback(drawChart);
-                  function drawChart() {
-                         var data = google.visualization.arrayToDataTable([
-                                ["Ano", "Gasto", { role: "style" } ],
-                                ["2014", <?php echo $ano2014; ?>, "#00008B"],
-                                ["2015", <?php echo $ano2015; ?>, "#0000CD"],
-                                ["2016", <?php echo $ano2016; ?>, "#0000CD"],
-                                ["2017", <?php echo $ano2017; ?>, "#0000FF"],
-                                ["2018", <?php echo $ano2018; ?>, "color: #1E90FF"]
-                                ]);
-
-                         var view = new google.visualization.DataView(data);
-                         view.setColumns([0, 1,
-                                { calc: "stringify",
-                                sourceColumn: 1,
-                                type: "string",
-                                role: "annotation" },
-                                2]);
-
-                         var options = {
-                                title: "Resumo dos gastos de todos os anos",
-                                width: 500,
-                                height: 350,
-                                bar: {groupWidth: "70%"},
-                                legend: { position: "none" },
-                        };
-                        var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
-                        chart.draw(view, options);
-                }
-        </script>
-        <div id="barchart_values" style="width: 500px; height: 300px; margin-bottom: 50px;"></div>
-</td>
-</tr>
-<tr>
-       <td><div style="margin-top: 20px"> </div></td>
-       <td><div style="margin-top: 20px"> </div></td>
-</tr>
-<tr>
-       <td>
-
-
-
-              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-              <script type="text/javascript">
-                     google.charts.load("current", {packages:["corechart"]});
-                     google.charts.setOnLoadCallback(drawChart);
-                     function drawChart() {
-                            var data = google.visualization.arrayToDataTable([
-                                   ['Vereador', 'Soma anual'],
-                                   ['<?php echo $nomeSelecao;?>', <?php echo $gastoIndividual; ?>],
-                                   ['Montante', <?php echo $montanteAnual; ?>]
-                                   ]);
-
-                            var options = {
-                                   title: 'Porcentagem que o Vereador representa no montante de gastos anuais',
-                                   pieHole: 0.4,
-                                   slices: {
-                                          0: { color: '0040FF' },
-                                          1: { color: 'add8e6' }
-                                  }
-                          };
-
-                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                          chart.draw(data, options);
-                  }
-          </script>
-  </head>
-
-  <div id="donutchart" style="width: 900px; height: 500px;"></div>
 
 
 
 </td>
 <td>
-       <p style="font-family: arial; font-size: 13px;"><b>Ranking de gastos de <?php echo $anoSelecionado; ?></b></p>
-       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-       <script type="text/javascript">
-              google.charts.load('current', {'packages':['table']});
-              google.charts.setOnLoadCallback(drawTable);
 
-              function drawTable() {
-                     var data = new google.visualization.DataTable();
-                     data.addColumn('string', '');
-                     data.addColumn('string', 'Vereador');
-                     data.addColumn('number', 'Soma anual');
-                     data.addRows([
-                            ['1','<?php echo $nome0; ?>',  <?php echo $valor0; ?>],
-                            ['2','<?php echo $nome1; ?>',   <?php echo $valor1; ?>],
-                            ['3','<?php echo $nome2; ?>', <?php echo $valor2; ?>],
-                            ['4','<?php echo $nome3; ?>',   <?php echo $valor3; ?>],
-                            ['5','<?php echo $nome4; ?>',   <?php echo $valor4; ?>]
-                            ]);
+     <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+       var data = google.visualization.arrayToDataTable([
+        ["Ano", "Gasto em reais", { role: "style" } ],
+        ["2014", <?php echo $ano2014; ?>, "#00008B"],
+        ["2015", <?php echo $ano2015; ?>, "#0000CD"],
+        ["2016", <?php echo $ano2016; ?>, "#0000CD"],
+        ["2017", <?php echo $ano2017; ?>, "#0000FF"],
+        ["2018", <?php echo $ano2018; ?>, "color: #1E90FF"]
+        ]);
 
-                     var table = new google.visualization.Table(document.getElementById('table_div'));
+       var view = new google.visualization.DataView(data);
+       view.setColumns([0, 1,
+        { calc: "stringify",
+        sourceColumn: 1,
+        type: "string",
+        role: "annotation" },
+        2]);
 
-                     table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
-             }
-     </script>
+       var options = {
+        title: "Resumo dos gastos de todos os anos",
+        width: 500,
+        height: 350,
+        bar: {groupWidth: "70%"},
+        legend: { position: "none" },
+};
+var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+chart.draw(view, options);
+}
+</script>
+<div id="barchart_values" style="width: 500px; height: 300px; margin-bottom: 50px;"></div>
+</td>
+</tr>
+<tr>
+ <td><div style="margin-top: 20px"> </div></td>
+ <td><div style="margin-top: 20px"> </div></td>
+</tr>
+<tr>
+ <td>
+
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+   google.charts.load("current", {packages:["corechart"]});
+   google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+     ['Vereador', 'Soma anual em reais'],
+     ['<?php echo $nomeSelecao;?>', <?php echo $gastoIndividual; ?>],
+     ['Montante', <?php echo $montanteAnual; ?>]
+     ]);
+
+    var options = {
+     title: 'Porcentagem que o Vereador representa no montante de gastos anuais',
+     pieHole: 0.4,
+     slices: {
+      0: { color: '0040FF' },
+      1: { color: 'add8e6' }
+}
+};
+
+var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+chart.draw(data, options);
+}
+</script>
+</head>
+
+<div id="donutchart" style="width: 900px; height: 500px;"></div>
+
+
+
+</td>
+<td>
+ <p style="font-family: arial; font-size: 13px;"><b>Ranking de gastos de <?php echo $anoSelecionado; ?></b></p>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript">
+  google.charts.load('current', {'packages':['table']});
+  google.charts.setOnLoadCallback(drawTable);
+
+  function drawTable() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', '');
+   data.addColumn('string', 'Vereador');
+   data.addColumn('number', 'Soma anual em reais');
+   data.addRows([
+    ['1','<?php echo $nome0; ?>',  <?php echo $valor0; ?>],
+    ['2','<?php echo $nome1; ?>',   <?php echo $valor1; ?>],
+    ['3','<?php echo $nome2; ?>', <?php echo $valor2; ?>],
+    ['4','<?php echo $nome3; ?>',   <?php echo $valor3; ?>],
+    ['5','<?php echo $nome4; ?>',   <?php echo $valor4; ?>]
+    ]);
+
+   var table = new google.visualization.Table(document.getElementById('table_div'));
+
+   table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
+}
+</script>
 </head>
 
 <div id="table_div"></div>
@@ -695,92 +821,236 @@ or die ('Cannot connect to db');
 </td>
 
 </tr>
-
+<?php 
+if ($anoSelecionado != 2018){
+?>
 <tr>
-       <td>
+ <td>
 
-               <script type="text/javascript">
-                    google.charts.load("current", {packages:["corechart"]});
-                    google.charts.setOnLoadCallback(drawChart);
-                    function drawChart() {
-                          var data = google.visualization.arrayToDataTable([
-                                ["Vereador", "Gastos de <?php echo $anoSelecionado;?>", { role: "style" } ],
-                                ["<?php echo $nomeVereador1;?>", <?php echo $vereador1;?>, "#00008B"],
-                                ["<?php echo $nomeVereador2;?>", <?php echo $vereador2;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador3;?>", <?php echo $vereador3;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador4;?>", <?php echo $vereador4;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador5;?>", <?php echo $vereador5;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador6;?>", <?php echo $vereador6;?>, "#00008B"],
-                                ["<?php echo $nomeVereador7;?>", <?php echo $vereador7;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador8;?>", <?php echo $vereador8;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador9;?>", <?php echo $vereador9;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador10;?>", <?php echo $vereador10;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador11;?>", <?php echo $vereador11;?>, "#00008B"],
-                                ["<?php echo $nomeVereador12;?>", <?php echo $vereador12;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador13;?>", <?php echo $vereador13;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador14;?>", <?php echo $vereador14;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador15;?>", <?php echo $vereador15;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador16;?>", <?php echo $vereador16;?>, "#00008B"],
-                                ["<?php echo $nomeVereador17;?>", <?php echo $vereador17;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador18;?>", <?php echo $vereador18;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador19;?>", <?php echo $vereador19;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador20;?>", <?php echo $vereador20;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador21;?>", <?php echo $vereador21;?>, "#00008B"],
-                                ["<?php echo $nomeVereador22;?>", <?php echo $vereador22;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador23;?>", <?php echo $vereador23;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador24;?>", <?php echo $vereador24;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador25;?>", <?php echo $vereador25;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador26;?>", <?php echo $vereador26;?>, "#00008B"],
-                                ["<?php echo $nomeVereador27;?>", <?php echo $vereador27;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador28;?>", <?php echo $vereador28;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador29;?>", <?php echo $vereador29;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador30;?>", <?php echo $vereador30;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador31;?>", <?php echo $vereador31;?>, "#00008B"],
-                                ["<?php echo $nomeVereador32;?>", <?php echo $vereador32;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador33;?>", <?php echo $vereador33;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador34;?>", <?php echo $vereador34;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador35;?>", <?php echo $vereador35;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador36;?>", <?php echo $vereador36;?>, "#00008B"],
-                                ["<?php echo $nomeVereador37;?>", <?php echo $vereador37;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador38;?>", <?php echo $vereador38;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador39;?>", <?php echo $vereador39;?>, "#1E90FF"],
-                                ["<?php echo $nomeVereador40;?>", <?php echo $vereador40;?>, "#2ECCFA"],
-                                ["<?php echo $nomeVereador41;?>", <?php echo $vereador41;?>, "#00008B"],
-                                ["<?php echo $nomeVereador42;?>", <?php echo $vereador42;?>, "#0000CD"],
-                                ["<?php echo $nomeVereador43;?>", <?php echo $vereador43;?>, "#0000FF"],
-                                ["<?php echo $nomeVereador44;?>", <?php echo $vereador44;?>, "1E90FF"],
-                                ["<?php echo $nomeVereador45;?>", <?php echo $vereador45;?>, "#2ECCFA"]
+         <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ["Vereador", "Gastos de <?php echo $anoSelecionado;?> em reais", { role: "style" } ],
+                ["<?php echo $nomeVereador1;?>", <?php echo $vereador1;?>, "#00008B"],
+                ["<?php echo $nomeVereador2;?>", <?php echo $vereador2;?>, "#0000CD"],
+                ["<?php echo $nomeVereador3;?>", <?php echo $vereador3;?>, "#0000FF"],
+                ["<?php echo $nomeVereador4;?>", <?php echo $vereador4;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador5;?>", <?php echo $vereador5;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador6;?>", <?php echo $vereador6;?>, "#00008B"],
+                ["<?php echo $nomeVereador7;?>", <?php echo $vereador7;?>, "#0000CD"],
+                ["<?php echo $nomeVereador8;?>", <?php echo $vereador8;?>, "#0000FF"],
+                ["<?php echo $nomeVereador9;?>", <?php echo $vereador9;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador10;?>", <?php echo $vereador10;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador11;?>", <?php echo $vereador11;?>, "#00008B"],
+                ["<?php echo $nomeVereador12;?>", <?php echo $vereador12;?>, "#0000CD"],
+                ["<?php echo $nomeVereador13;?>", <?php echo $vereador13;?>, "#0000FF"],
+                ["<?php echo $nomeVereador14;?>", <?php echo $vereador14;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador15;?>", <?php echo $vereador15;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador16;?>", <?php echo $vereador16;?>, "#00008B"],
+                ["<?php echo $nomeVereador17;?>", <?php echo $vereador17;?>, "#0000CD"],
+                ["<?php echo $nomeVereador18;?>", <?php echo $vereador18;?>, "#0000FF"],
+                ["<?php echo $nomeVereador19;?>", <?php echo $vereador19;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador20;?>", <?php echo $vereador20;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador21;?>", <?php echo $vereador21;?>, "#00008B"],
+                ["<?php echo $nomeVereador22;?>", <?php echo $vereador22;?>, "#0000CD"],
+                ["<?php echo $nomeVereador23;?>", <?php echo $vereador23;?>, "#0000FF"],
+                ["<?php echo $nomeVereador24;?>", <?php echo $vereador24;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador25;?>", <?php echo $vereador25;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador26;?>", <?php echo $vereador26;?>, "#00008B"],
+                ["<?php echo $nomeVereador27;?>", <?php echo $vereador27;?>, "#0000CD"],
+                ["<?php echo $nomeVereador28;?>", <?php echo $vereador28;?>, "#0000FF"],
+                ["<?php echo $nomeVereador29;?>", <?php echo $vereador29;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador30;?>", <?php echo $vereador30;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador31;?>", <?php echo $vereador31;?>, "#00008B"],
+                ["<?php echo $nomeVereador32;?>", <?php echo $vereador32;?>, "#0000CD"],
+                ["<?php echo $nomeVereador33;?>", <?php echo $vereador33;?>, "#0000FF"],
+                ["<?php echo $nomeVereador34;?>", <?php echo $vereador34;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador35;?>", <?php echo $vereador35;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador36;?>", <?php echo $vereador36;?>, "#00008B"],
+                ["<?php echo $nomeVereador37;?>", <?php echo $vereador37;?>, "#0000CD"],
+                ["<?php echo $nomeVereador38;?>", <?php echo $vereador38;?>, "#0000FF"],
+                ["<?php echo $nomeVereador39;?>", <?php echo $vereador39;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador40;?>", <?php echo $vereador40;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador41;?>", <?php echo $vereador41;?>, "#00008B"],
+                ["<?php echo $nomeVereador42;?>", <?php echo $vereador42;?>, "#0000CD"],
+                ["<?php echo $nomeVereador43;?>", <?php echo $vereador43;?>, "#0000FF"],
+                ["<?php echo $nomeVereador44;?>", <?php echo $vereador44;?>, "1E90FF"],
+                ["<?php echo $nomeVereador45;?>", <?php echo $vereador45;?>, "#2ECCFA"]
 
-                                ]);
+                ]);
 
-                          var view = new google.visualization.DataView(data);
-                          view.setColumns([0, 1,
-                                 { calc: "stringify",
-                                 sourceColumn: 1,
-                                 type: "string",
-                                 role: "annotation" },
-                                 2]);
+var view = new google.visualization.DataView(data);
+view.setColumns([0, 1,
+       { calc: "stringify",
+       sourceColumn: 1,
+       type: "string",
+       role: "annotation" },
+       2]);
 
-                          var options = {
-                                title: "Gastos totais de <?php echo $anoSelecionado;?> comparando todos os vereadores",
-                                width: 1500,
-                                height: 600,
-                                bar: {groupWidth: "80%"},
-                                legend: { position: "none" },
-                                vAxis: {
-    textStyle:{color: '#FFF'}
+var options = {
+        title: "Gastos (em reais) totais de <?php echo $anoSelecionado;?> comparando todos os vereadores",
+        width: 1500,
+        height: 600,
+        bar: {groupWidth: "80%"},
+        legend: { position: "none" },
+        vAxis: {
+            textStyle:{color: '#FFF'}
+    }
+};
+var chart = new google.visualization.BarChart(document.getElementById("barchart_values2"));
+chart.draw(view, options);
 }
-                        };
-                        var chart = new google.visualization.BarChart(document.getElementById("barchart_values2"));
-                        chart.draw(view, options);
-                }
-        </script>
-        <div id="barchart_values2" style="width: 800px; height: 600px;"></div>
+</script>
+<div id="barchart_values2" style="width: 800px; height: 600px;"></div>
 
 
 </td>
 
 </tr>
+<?php
+}else{
+ 
+ ?>
+
+<tr>
+ <td>
+
+         <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ["Vereador", "Gastos de <?php echo $anoSelecionado;?> em reais", { role: "style" } ],
+                ["<?php echo $nomeVereador1;?>", <?php echo $vereador1;?>, "#00008B"],
+                ["<?php echo $nomeVereador2;?>", <?php echo $vereador2;?>, "#0000CD"],
+                ["<?php echo $nomeVereador3;?>", <?php echo $vereador3;?>, "#0000FF"],
+                ["<?php echo $nomeVereador4;?>", <?php echo $vereador4;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador5;?>", <?php echo $vereador5;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador6;?>", <?php echo $vereador6;?>, "#00008B"],
+                ["<?php echo $nomeVereador7;?>", <?php echo $vereador7;?>, "#0000CD"],
+                ["<?php echo $nomeVereador8;?>", <?php echo $vereador8;?>, "#0000FF"],
+                ["<?php echo $nomeVereador9;?>", <?php echo $vereador9;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador10;?>", <?php echo $vereador10;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador11;?>", <?php echo $vereador11;?>, "#00008B"],
+                ["<?php echo $nomeVereador12;?>", <?php echo $vereador12;?>, "#0000CD"],
+                ["<?php echo $nomeVereador13;?>", <?php echo $vereador13;?>, "#0000FF"],
+                ["<?php echo $nomeVereador14;?>", <?php echo $vereador14;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador15;?>", <?php echo $vereador15;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador16;?>", <?php echo $vereador16;?>, "#00008B"],
+                ["<?php echo $nomeVereador17;?>", <?php echo $vereador17;?>, "#0000CD"],
+                ["<?php echo $nomeVereador18;?>", <?php echo $vereador18;?>, "#0000FF"],
+                ["<?php echo $nomeVereador19;?>", <?php echo $vereador19;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador20;?>", <?php echo $vereador20;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador21;?>", <?php echo $vereador21;?>, "#00008B"],
+                ["<?php echo $nomeVereador22;?>", <?php echo $vereador22;?>, "#0000CD"],
+                ["<?php echo $nomeVereador23;?>", <?php echo $vereador23;?>, "#0000FF"],
+                ["<?php echo $nomeVereador24;?>", <?php echo $vereador24;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador25;?>", <?php echo $vereador25;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador26;?>", <?php echo $vereador26;?>, "#00008B"],
+                ["<?php echo $nomeVereador27;?>", <?php echo $vereador27;?>, "#0000CD"],
+                ["<?php echo $nomeVereador28;?>", <?php echo $vereador28;?>, "#0000FF"],
+                ["<?php echo $nomeVereador29;?>", <?php echo $vereador29;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador30;?>", <?php echo $vereador30;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador31;?>", <?php echo $vereador31;?>, "#00008B"],
+                ["<?php echo $nomeVereador32;?>", <?php echo $vereador32;?>, "#0000CD"],
+                ["<?php echo $nomeVereador33;?>", <?php echo $vereador33;?>, "#0000FF"],
+                ["<?php echo $nomeVereador34;?>", <?php echo $vereador34;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador35;?>", <?php echo $vereador35;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador36;?>", <?php echo $vereador36;?>, "#00008B"],
+                ["<?php echo $nomeVereador37;?>", <?php echo $vereador37;?>, "#0000CD"],
+                ["<?php echo $nomeVereador38;?>", <?php echo $vereador38;?>, "#0000FF"],
+                ["<?php echo $nomeVereador39;?>", <?php echo $vereador39;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador40;?>", <?php echo $vereador40;?>, "#2ECCFA"],
+                ["<?php echo $nomeVereador41;?>", <?php echo $vereador41;?>, "#00008B"],
+                ["<?php echo $nomeVereador42;?>", <?php echo $vereador42;?>, "#0000CD"],
+                ["<?php echo $nomeVereador43;?>", <?php echo $vereador43;?>, "#0000FF"],
+                ["<?php echo $nomeVereador44;?>", <?php echo $vereador44;?>, "#1E90FF"],
+                ["<?php echo $nomeVereador45;?>", <?php echo $vereador45;?>, "#2ECCFA"]
+
+                ]);
+
+var view = new google.visualization.DataView(data);
+view.setColumns([0, 1,
+       { calc: "stringify",
+       sourceColumn: 1,
+       type: "string",
+       role: "annotation" },
+       2]);
+
+var options = {
+        title: "Gastos totais de <?php echo $anoSelecionado;?> comparando todos os vereadores",
+        width: 800,
+        height: 600,
+        bar: {groupWidth: "80%"},
+        legend: { position: "none" },
+        vAxis: {
+            textStyle:{color: '#FFF'}
+    }
+};
+var chart = new google.visualization.BarChart(document.getElementById("barchart_values2"));
+chart.draw(view, options);
+}
+</script>
+<div id="barchart_values2" style="width: 750px; height: 600px;"></div>
+
+
+</td>
+<td>
+     
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Gasto", "Valor em reais", { role: "style" } ],
+        ["Passagem", <?php echo $passagem;?>, "#1E90FF"],
+        ["Telefone fixo", <?php echo $telefone_fixo;?>, "#00008B"],
+        ["Xerox", <?php echo $xerox;?>, "#0000CC"],
+        ["Correio", <?php echo $correio;?>, "#0000CD"],
+        ["Material do Expediente", <?php echo $material_expediente;?>, "#0000FE"],
+        ["Diárias", <?php echo $diarias;?>, "#0000FF"],
+        ["Outros", <?php echo $outros;?>, "#1E90FF"],
+        ["Selos", <?php echo $selos;?>, "#2ECCFA"],
+        ["Servi&ccedilos", <?php echo $servicos;?>, "#00008B"],
+        ["Telefone", <?php echo $telefone;?>, "#0000CC"],
+        ["Cursos", <?php echo $cursos;?>, "#0000CD"],
+        ["Carimbos", <?php echo $carimbos;?>, "#0000FE"],
+        ["Jornal", <?php echo $jornal;?>, "#0000FF"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Gastos (em reais) anuais especificados",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+        hAxis: {
+            textStyle:{color: '#FFF'}
+    },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="columnchart_values" style="width: 450px; height: 300px;"></div>
+
+</td>
+
+</tr>
+
+<?php } ?>
 
 </tbody>
 </table>
